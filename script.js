@@ -24,7 +24,7 @@ const builds = [
     specs: [
       { label: "CPU", value: "Intel Core i5-13600K" },
       { label: "RAM", value: "32GB DDR5" },
-      { label: "GPU", value: "RTX 4070 12GB" },
+      { label: "GPU", value: "RTX 5070 12GB" },
       { label: "SSD", value: "1TB NVMe" },
     ]
   },
@@ -38,7 +38,7 @@ const builds = [
     specs: [
       { label: "CPU", value: "AMD Ryzen 9 7950X" },
       { label: "RAM", value: "64GB DDR5" },
-      { label: "GPU", value: "RTX 4080 16GB" },
+      { label: "GPU", value: "RTX 5080 16GB" },
       { label: "SSD", value: "2TB NVMe" },
     ]
   },
@@ -52,7 +52,7 @@ const builds = [
     specs: [
       { label: "CPU", value: "Intel i9-14900K" },
       { label: "RAM", value: "128GB DDR5" },
-      { label: "GPU", value: "RTX 4090 24GB" },
+      { label: "GPU", value: "RTX 5090 24GB" },
       { label: "SSD", value: "4TB NVMe" },
     ]
   }
