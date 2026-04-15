@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TQNKPC — Игровые ПК</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ШАПКА -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#" class="logo">TQNK<span>PC</span></a>
+      <nav class="nav" id="nav">
+        <a href="#home" class="nav__link">Главная</a>
+        <a href="#services" class="nav__link">Услуги</a>
+        <a href="#catalog" class="nav__link">Сборки</a>
+        <a href="#pricing" class="nav__link">Тарифы</a>
+        <a href="#contact" class="nav__link">Контакты</a>
+      </nav>
+      <a href="#contact" class="btn btn--primary header__cta">Оставить заявку</a>
+      <button class="burger" id="burger" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ГЛАВНЫЙ ЭКРАН -->
+  <section class="hero" id="home">
+    <div class="hero__bg"></div>
+    <div class="container hero__inner">
+      <div class="hero__tag">Сборка и обслуживание ПК</div>
+      <h1 class="hero__title">МАКСИМАЛЬНАЯ<br/><span>ПРОИЗВОДИТЕЛЬНОСТЬ</span><br/>ДЛЯ ТВОЕЙ ИГРЫ</h1>
+      <p class="hero__desc">Профессиональная сборка игровых компьютеров под ключ.<br/>Гарантия 1 год. Доставка по всей России.</p>
+      <div class="hero__btns">
+        <a href="#catalog" class="btn btn--primary">Выбрать сборку</a>
+        <a href="#contact" class="btn btn--ghost">Консультация</a>
+      </div>
+      <div class="hero__stats">
+        <div class="hero__stat">
+          <span class="hero__stat-num">500+</span>
+          <span class="hero__stat-label">собранных ПК</span>
+        </div>
+        <div class="hero__stat-div"></div>
+        <div class="hero__stat">
+          <span class="hero__stat-num">3 года</span>
+          <span class="hero__stat-label">на рынке</span>
+        </div>
+        <div class="hero__stat-div"></div>
+        <div class="hero__stat">
+          <span class="hero__stat-num">98%</span>
+          <span class="hero__stat-label">довольных клиентов</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ИНФО-БЛОКИ ОБ УСЛУГАХ -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section__head">
+        <div class="section__tag">Что мы делаем</div>
+        <h2 class="section__title">НАШИ УСЛУГИ</h2>
+      </div>
+      <div class="services__grid">
+        <div class="service-card">
+          <div class="service-card__num">01</div>
+          <h3>Сборка на заказ</h3>
+          <p>Игровые, рабочие и офисные ПК под ваш бюджет. Подбор комплектующих, сборка и тестирование.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-card__num">02</div>
+          <h3>Ремонт и диагностика</h3>
+          <p>Бесплатная диагностика, замена комплектующих, чистка от пыли, замена термопасты.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-card__num">03</div>
+          <h3>Апгрейд системы</h3>
+          <p>Замена видеокарты, RAM, переход на SSD. Дадим второе дыхание вашему компьютеру.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-card__num">04</div>
+          <h3>Установка ПО</h3>
+          <p>Windows, драйверы, офисные и профессиональные программы. Полная настройка с нуля.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- КАТАЛОГ СБОРОК -->
+  <section class="catalog" id="catalog">
+    <div class="container">
+      <div class="section__head">
+        <div class="section__tag">Готовые конфигурации</div>
+        <h2 class="section__title">ВЫБЕРИ СВОЙ ПК</h2>
+      </div>
+      <div class="catalog__grid" id="catalogGrid">
+        <!-- Карточки генерируются через JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ТАРИФЫ -->
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <div class="section__head">
+        <div class="section__tag">Обслуживание</div>
+        <h2 class="section__title">ТАРИФЫ</h2>
+      </div>
+      <div class="pricing__grid" id="pricingGrid">
+        <!-- Тарифы генерируются через JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- КОНТАКТЫ -->
+  <section class="contact" id="contact">
+    <div class="container contact__inner">
+      <div class="contact__info">
+        <div class="section__tag">Связь с нами</div>
+        <h2 class="section__title">ОСТАВЬ ЗАЯВКУ</h2>
+        <p class="contact__desc">Ответим в течение 30 минут в рабочее время</p>
+        <div class="contact__details">
+          <div class="contact__item"><span class="contact__ico"></span><span>Адрес: ул. Техническая, 12, офис 305</span></div>
+          <div class="contact__item"><span class="contact__ico"></span><span>Телефон: +7 (999) 123-45-67</span></div>
+          <div class="contact__item"><span class="contact__ico"></span><span>Email: info@TQNKPC.ru</span></div>
+          <div class="contact__item"><span class="contact__ico"></span><span>Время работы: Пн–Сб: 9:00 – 20:00</span></div>
+        </div>
+      </div>
+      <div class="contact__form-wrap">
+        <div class="form" id="contactForm">
+          <input class="form__input" type="text" id="name" placeholder="Ваше имя" />
+          <input class="form__input" type="tel" id="phone" placeholder="Телефон" />
+          <textarea class="form__input form__textarea" id="message" placeholder="Опишите проблему или запрос"></textarea>
+          <button class="btn btn--primary" id="submitBtn" type="button">Отправить заявку</button>
+          <div class="form__msg" id="formMsg"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ФУТЕР -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <a href="#" class="logo">TQN<span>PC</span></a>
+      <p>© 2025 TQNKPC. Все права защищены.</p>
+      <nav class="footer__nav">
+        <a href="#services">Услуги</a>
+        <a href="#catalog">Сборки</a>
+        <a href="#contact">Контакты</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
