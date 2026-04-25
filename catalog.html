@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TQNKPC — Каталог комплектующих</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="catalog.css" />
+  <link rel="shortcut icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23e3000f'/%3E%3Ctext x='50' y='68' font-size='50' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'%3EPC%3C/text%3E%3C/svg%3E" type="image/svg+xml">
+</head>
+<body>
+  <script>if(localStorage.getItem("theme")==="light")document.body.classList.add("light")</script>
+
+  <!-- ШАПКА -->
+ <header class="header" id="header">
+  <div class="container header__inner">
+    <a href="index.html" class="logo">TQNK<span>PC</span></a>
+    
+    <nav class="nav" id="nav">
+      <a href="index.html" class="nav__link">Главная</a>
+      <a href="index.html#services" class="nav__link">Услуги</a>
+      <a href="index.html#catalog" class="nav__link">Сборки</a>
+      <a href="catalog.html" class="nav__link">Комплектующие</a>
+      <a href="index.html#pricing" class="nav__link">Тарифы</a>
+      <a href="index.html#contact" class="nav__link">Контакты</a>
+      <a href="configurator.html" class="nav__link">Конфигуратор</a>
+      <button class="theme-toggle-nav">Сменить тему</button>
+    </nav>
+
+    <a href="index.html#contact" class="btn btn--primary header__cta">Оставить заявку</a>
+
+    <button class="burger" id="burger" aria-label="Меню">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+  <!-- HERO КАТАЛОГА -->
+  <section class="cat-hero">
+    <div class="hero__bg"></div>
+    <div class="container cat-hero__inner">
+      <div class="hero__tag">Магазин</div>
+      <h1 class="hero__title">КАТАЛОГ<br/><span>КОМПЛЕКТУЮЩИХ</span></h1>
+      <p class="hero__desc">Процессоры, видеокарты, оперативная память и многое другое.<br/>Только проверенные бренды с гарантией.</p>
+    </div>
+  </section>
+
+  <!-- КАТАЛОГ -->
+  <section class="cat-section">
+    <div class="container">
+
+      <!-- ФИЛЬТРЫ + ПОИСК -->
+      <div class="cat-controls">
+        <div class="cat-filters" id="catFilters">
+          <!-- Кнопки фильтров генерируются через JS -->
+        </div>
+        <input class="cat-search form__input" id="catSearch" type="text" placeholder="Поиск по названию..." />
+      </div>
+
+      <!-- СЧЁТЧИК РЕЗУЛЬТАТОВ -->
+      <div class="cat-count" id="catCount"></div>
+
+      <!-- СЕТКА ТОВАРОВ -->
+      <div class="cat-grid" id="catGrid">
+        <!-- Карточки генерируются через JS -->
+      </div>
+
+      <!-- ПУСТО -->
+      <div class="cat-empty" id="catEmpty" style="display:none">
+        <div class="cat-empty__icon">🔍</div>
+        <div class="cat-empty__text">Ничего не найдено</div>
+        <div class="cat-empty__sub">Попробуйте изменить фильтр или поисковый запрос</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ФУТЕР -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <a href="index.html" class="logo">TQNK<span>PC</span></a>
+      <p>© 2026 TQNKPC. Все права защищены.</p>
+      <nav class="footer__nav">
+        <a href="index.html#services">Услуги</a>
+        <a href="index.html#catalog">Сборки</a>
+        <a href="index.html#contact">Контакты</a>
+      </nav>
+    </div>
+  </footer>
+
+
+  <!-- КНОПКА НАВЕРХ -->
+  <button class="scroll-top" id="scrollTop" aria-label="Наверх">↑</button>
+
+  <script src="data.js"></script>
+  <script src="catalog.js"></script>
+
+</body>
+</html>

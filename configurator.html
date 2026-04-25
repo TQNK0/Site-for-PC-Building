@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TQNKPC — Конфигуратор сборки</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="configurator.css" />
+  <link rel="shortcut icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23e3000f'/%3E%3Ctext x='50' y='68' font-size='50' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'%3EPC%3C/text%3E%3C/svg%3E" type="image/svg+xml">
+</head>
+<body>
+  <script>if(localStorage.getItem("theme")==="light")document.body.classList.add("light")</script>
+
+  <!-- ШАПКА -->
+  <header class="header" id="header">
+  <div class="container header__inner">
+    <a href="index.html" class="logo">TQNK<span>PC</span></a>
+    <nav class="nav" id="nav">
+      <a href="index.html" class="nav__link">Главная</a>
+      <a href="index.html#services" class="nav__link">Услуги</a>
+      <a href="index.html#catalog" class="nav__link">Сборки</a>
+      <a href="catalog.html" class="nav__link">Комплектующие</a>
+      <a href="index.html#pricing" class="nav__link">Тарифы</a>
+      <a href="index.html#contact" class="nav__link">Контакты</a>
+      <a href="configurator.html" class="nav__link">Конфигуратор</a>
+      <button class="theme-toggle-nav">Сменить тему</button>
+    </nav>
+
+    <a href="index.html#contact" class="btn btn--primary header__cta">Оставить заявку</a>
+
+    <button class="burger" id="burger" aria-label="Меню">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+  <!-- HERO -->
+  <section class="cfg-hero">
+    <div class="hero__bg"></div>
+    <div class="container cfg-hero__inner">
+      <div class="hero__tag">Сборка онлайн</div>
+      <h1 class="hero__title">КОНФИГУРАТОР<br/><span>СБОРКИ ПК</span></h1>
+      <p class="hero__desc">Выбери комплектующие — мы посчитаем стоимость и соберём ПК под ключ.</p>
+    </div>
+  </section>
+
+  <!-- КОНФИГУРАТОР -->
+  <section class="cfg-section">
+    <div class="container cfg-layout">
+
+      <!-- ЛЕВАЯ ЧАСТЬ: ШАГИ -->
+      <div class="cfg-steps" id="cfgSteps">
+        <!-- генерируется через configurator.js из data.js -->
+      </div>
+
+      <!-- ПРАВАЯ ЧАСТЬ: ИТОГ -->
+      <div class="cfg-summary">
+        <div class="section__tag">Ваша сборка</div>
+        <h2 class="cfg-summary__head">ИТОГ</h2>
+
+        <div class="cfg-chosen" id="cfgChosen"></div>
+
+        <div class="cfg-total">
+          <div class="cfg-total__label">Итоговая стоимость</div>
+          <div class="cfg-total__price" id="cfgTotalPrice">0 ₽</div>
+          <div class="cfg-total__note">сборка и тестирование включены</div>
+        </div>
+
+        <div class="cfg-compat" id="cfgCompat"></div>
+
+        <button class="btn btn--primary" id="cfgOrderBtn" style="width:100%">Заказать сборку</button>
+        <button class="btn btn--outline" id="cfgResetBtn" style="width:100%; margin-top:12px">Сбросить выбор</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ФУТЕР -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <a href="index.html" class="logo">TQNK<span>PC</span></a>
+      <p>© 2026 TQNKPC. Все права защищены.</p>
+      <nav class="footer__nav">
+        <a href="index.html#services">Услуги</a>
+        <a href="catalog.html">Комплектующие</a>
+        <a href="faq.html">FAQ</a>
+        <a href="index.html#contact">Контакты</a>
+      </nav>
+    </div>
+  </footer>
+
+  <button class="scroll-top" id="scrollTop" aria-label="Наверх">↑</button>
+
+  <!-- data.js ВСЕГДА ПЕРВЫМ, потом остальные скрипты -->
+  <script src="data.js"></script>
+  <script src="configurator.js"></script>
+  
+</body>
+</html>

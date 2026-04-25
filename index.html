@@ -10,24 +10,30 @@
   <link rel="shortcut icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23e3000f'/%3E%3Ctext x='50' y='68' font-size='50' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'%3EPC%3C/text%3E%3C/svg%3E" type="image/svg+xml">
 </head>
 <body>
-
+  
+  
   <!-- ШАПКА -->
   <header class="header" id="header">
-    <div class="container header__inner">
-      <a href="#" class="logo">TQNK<span>PC</span></a>
-      <nav class="nav" id="nav">
-        <a href="#home" class="nav__link">Главная</a>
-        <a href="#services" class="nav__link">Услуги</a>
-        <a href="#catalog" class="nav__link">Сборки</a>
-        <a href="#pricing" class="nav__link">Тарифы</a>
-        <a href="#contact" class="nav__link">Контакты</a>
-      </nav>
-      <a href="#contact" class="btn btn--primary header__cta">Оставить заявку</a>
-      <button class="burger" id="burger" aria-label="Меню">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </header>
+  <div class="container header__inner">
+    <a href="index.html" class="logo">TQNK<span>PC</span></a>
+    <nav class="nav" id="nav">
+      <a href="index.html" class="nav__link">Главная</a>
+      <a href="index.html#services" class="nav__link">Услуги</a>
+      <a href="index.html#catalog" class="nav__link">Сборки</a>
+      <a href="catalog.html" class="nav__link">Комплектующие</a>
+      <a href="index.html#pricing" class="nav__link">Тарифы</a>
+      <a href="index.html#contact" class="nav__link">Контакты</a>
+      <a href="configurator.html" class="nav__link">Конфигуратор</a>
+      <button class="theme-toggle-nav">Сменить тему</button>
+    </nav>
+
+    <a href="index.html#contact" class="btn btn--primary header__cta">Оставить заявку</a>
+
+    <button class="burger" id="burger" aria-label="Меню">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
 
   <!-- ГЛАВНЫЙ ЭКРАН -->
   <section class="hero" id="home">
@@ -151,11 +157,15 @@
       <nav class="footer__nav">
         <a href="#services">Услуги</a>
         <a href="#catalog">Сборки</a>
+        <a href="catalog.html">Комплектующие</a>
         <a href="#contact">Контакты</a>
       </nav>
     </div>
   </footer>
 
+
+  <!-- КНОПКА НАВЕРХ -->
+  <button class="scroll-top" id="scrollTop" aria-label="Наверх">↑</button>
   <script src="script.js"></script>
 </body>
 </html>

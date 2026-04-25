@@ -2,7 +2,7 @@
 const builds = [
   {
     name: "Office Start",
-    image: "https://cdn.digital-razor.ru/FM81UB6T0H6zzqCwN79RqtS6yto=/fit-in/680x680/filters:format(webp)/files/upload/iblock/92b/92b83d261856fdab12a081e55ced3420.png",
+    image: "",
     desc: "Для офисной работы и других задач",
     price: "74 900 ₽",
     featured: false,
@@ -16,7 +16,7 @@ const builds = [
   },
   {
     name: "Game Pro",
-    image: "https://cdn.digital-razor.ru/EqWdBudsOuuqafBn4y5K3la3vMQ=/fit-in/680x680/filters:format(webp)/files/upload/iblock/4b9/4b96c748547f94aea9745b43fcec6266.png",
+    image: "",
     desc: "Игровой ПК для комфортной игры в Full HD",
     price: "84 900 ₽",
     featured: true,
@@ -30,7 +30,7 @@ const builds = [
   },
   {
     name: "Creator Beast",
-    image:"https://cdn.digital-razor.ru/68EPtpHsLj1ZLk88wKyyBpQTqAE=/fit-in/680x680/filters:format(webp)/files/upload/iblock/d9b/d9b74daf8e551080be21f91096065784.png",
+    image:"",
     desc: "Для монтажа, 3D и работы с тяжёлыми задачами",
     price: "139 900 ₽",
     featured: false,
@@ -44,7 +44,7 @@ const builds = [
   },
   {
     name: "Ultra Extreme",
-    image: "https://cdn.digital-razor.ru/MxJEqy3EUjVMvuqXLNb2tvNvPgk=/fit-in/680x680/filters:format(webp)/files/upload/iblock/67a/67a7bd29bf6d84425ade4e90b6b52198.png",
+    image: "",
     desc: "Максимальная производительность без компромиссов",
     price: "299 900 ₽",
     featured: false,
@@ -123,6 +123,8 @@ function renderBuilds() {
   const grid = document.getElementById("catalogGrid");
   if (!grid) return;
 
+  grid.innerHTML = ""; // Очищаем сетку перед рендером
+
   builds.forEach(build => {
     const card = document.createElement("div");
     card.className = "build-card" + (build.featured ? " featured" : "");
@@ -131,13 +133,18 @@ function renderBuilds() {
       .map(s => `<div class="spec-row"><span>${s.label}</span><span>${s.value}</span></div>`)
       .join("");
 
-    const imageHTML = build.image 
-      ? `<img src="${build.image}" alt="${build.name}" class="build-card__image">`
-      : `<div class="build-card__emoji">${build.emoji}</div>`; // fallback на эмодзи если фото нет
+    // Проверяем наличие корректной ссылки
+    const isFullImage = build.image && build.image.includes("http");
+
+    const imageHTML = isFullImage 
+      ? `<img src="${build.image}" alt="${build.name}" class="build-card__image" loading="lazy" />`
+      : `<div class="build-card__placeholder">Фото готовится</div>`;
 
     card.innerHTML = `
       ${build.badge ? `<div class="build-card__badge">${build.badge}</div>` : ""}
-      ${imageHTML}  <!-- ← ФОТО ВСТАВЛЯЕТСЯ СЮДА -->
+      <div class="build-card__img-container">
+        ${imageHTML}
+      </div>
       <div class="build-card__body">
         <div class="build-card__name">${build.name}</div>
         <div class="build-card__desc">${build.desc}</div>
@@ -262,7 +269,7 @@ function initScrollAnimation() {
       if (entry.isIntersecting) {
         entry.target.style.opacity = "1";
         entry.target.style.transform = entry.target.classList.contains("best")
-          ? "translateY(-6px)"
+          ? "translateY(0px)"
           : "translateY(0)";
       }
     });
@@ -284,4 +291,49 @@ document.addEventListener("DOMContentLoaded", function () {
   initBurger();
   initScrollSpy();
   setTimeout(initScrollAnimation, 100);
+
+  // Подхватываем товар из каталога (кнопка "В заявку")
+  const orderItem = sessionStorage.getItem("orderItem");
+  if (orderItem) {
+    const msgField = document.getElementById("message");
+    if (msgField) msgField.value = `Хочу заказать: ${orderItem}`;
+    sessionStorage.removeItem("orderItem");
+  }
+});
+
+// ===== КНОПКА НАВЕРХ =====
+function initScrollTop() {
+  const btn = document.getElementById("scrollTop");
+  if (!btn) return;
+
+  window.addEventListener("scroll", () => {
+    btn.classList.toggle("visible", window.scrollY > 400);
+  });
+
+  btn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}
+
+function initThemeToggle() {
+  const btn = document.querySelector(".theme-toggle-nav"); // было getElementById("themeToggle")
+  if (!btn) return;
+
+  // Восстановить сохранённую тему
+  if (localStorage.getItem("theme") === "light") {
+    document.body.classList.add("light");
+    btn.innerHTML = "Сменить тему"; 
+  }
+
+  btn.addEventListener("click", () => {
+    const isLight = document.body.classList.toggle("light");
+    btn.innerHTML = isLight ? "Сменить тему" : "Сменить тему"; // с текстом "ТЕМА"
+    localStorage.setItem("theme", isLight ? "light" : "dark");
+  });
+}
+
+// Добавить вызовы в DOMContentLoaded
+document.addEventListener("DOMContentLoaded", function () {
+  initScrollTop();
+  initThemeToggle();
 });

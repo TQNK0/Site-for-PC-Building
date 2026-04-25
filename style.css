@@ -195,7 +195,7 @@ a { text-decoration: none; color: inherit; }
   font-family: var(--font-head);
   font-size: clamp(2.8rem, 7vw, 5.5rem);
   font-weight: 700;
-  line-height: 1;
+  line-height: 1.3;
   letter-spacing: 2px;
   text-transform: uppercase;
   margin-bottom: 24px;
@@ -356,6 +356,42 @@ a { text-decoration: none; color: inherit; }
   color: var(--accent);
   letter-spacing: 1px;
   margin-bottom: 16px;
+}
+
+.build-card__img-container {
+  width: 100%;
+  height: 220px;       /* Фиксированная высота для всех карточек */
+  display: flex;       /* Включаем Flexbox */
+  align-items: center; /* Центрируем по вертикали */
+  justify-content: center; /* Центрируем по горизонтали */
+  background: var(--bg3); /* Темный фон */
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+
+/* Сама картинка внутри контейнера */
+.build-card__image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* Картинка не растягивается и не обрезается */
+  padding: 10px;
+}
+
+/* Стили заглушки */
+.build-card__placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  font-family: var(--font-head);
+  font-size: 0.9rem;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  text-align: center;
+  padding: 20px;
 }
 
 /* ===== ТАРИФЫ ===== */
@@ -522,8 +558,9 @@ a { text-decoration: none; color: inherit; }
 .footer__nav a:hover { color: var(--accent); }
 
 /* ===== АДАПТИВНОСТЬ ===== */
-@media (max-width: 900px) {
-  .contact__inner { grid-template-columns: 1fr; gap: 40px; }
+@media (max-width: 700px) {
+  .cat-controls { flex-direction: column; align-items: stretch; }
+  .cat-search { max-width: 100%; }
 }
 
 @media (max-width: 700px) {
@@ -550,3 +587,80 @@ a { text-decoration: none; color: inherit; }
   object-fit: cover;
   border-radius: 12px 12px 0 0;
 }
+/* ===== СВЕТЛАЯ ТЕМА ===== */
+body.light {
+  --bg:         #f2f2f2;
+  --bg2:        #ffffff;
+  --bg3:        #e8e8e8;
+  --bg4:        #dddddd;
+  --text:       #111111;
+  --text-muted: #666666;
+  --border:     #cccccc;
+}
+
+body.light .header        { background: rgba(242,242,242,0.97); }
+body.light .burger span   { background: #111; }
+body.light .service-card__num { color: #ccc; }
+body.light .service-card:hover .service-card__num { color: var(--accent); }
+body.light .services__grid { background: var(--border); }
+body.light .hero__bg {
+  background:
+    radial-gradient(ellipse at 60% 50%, rgba(227,0,15,0.07) 0%, transparent 55%),
+    linear-gradient(180deg, #f2f2f2 0%, #efefef 100%);
+}
+body.light .hero__bg::after {
+  background: linear-gradient(135deg, transparent 40%, rgba(227,0,15,0.03) 100%);
+}
+body.light .logo {
+  color: #111111; /* или var(--text) */
+}
+
+body.light .logo span {
+  color: var(--accent); /* оставляем акцентный цвет для "PC" */
+}
+
+/* ===== ПЕРЕКЛЮЧАТЕЛЬ ТЕМЫ ===== */
+.theme-toggle-nav {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-family: var(--font-head);
+  font-size: 0.9rem;
+  font-weight: inherit;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  padding: 0;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+.theme-toggle-nav:hover {
+  color: var(--accent);
+}
+
+/* ===== КНОПКА НАВЕРХ ===== */
+.scroll-top {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 200;
+  width: 46px;
+  height: 46px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 1.2rem;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s, transform 0.2s;
+  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+}
+.scroll-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+.scroll-top:hover { transform: translateY(-3px); }
